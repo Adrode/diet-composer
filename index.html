@@ -12,6 +12,7 @@
     <link href="style.css" rel="stylesheet" />
 
     <script defer src="script.js"></script>
+    <script defer src="BMRscript.js"></script>
     <title>Diet composer</title>
 </head>
 
@@ -21,19 +22,67 @@
     </header>
     <main class="main">
         <section class="macro">
-            <p class="macro__kcal">[] kcal</p>
+            <p class="macro__kcal"><span class="js-kcal">[]</span> kcal</p>
             <div class="macro__nutrients">
+                <p><span class="js-whey">[]</span>g whey</p>
+                <p><span class="js-fat">[]</span>g fat</p>
+                <p><span class="js-carbs">[]</span>g carbs</p>
+            </div>
+            <p class="macro__kcal"><span class="js-meals">[]</span> meals a day</p> <!-- class name to be changed -->
+        </section>
+        <section class="macroPerMeal">
+            <h2 class="macroPerMeal__header">Macro per every meal:</h2>
+            <p class="macroPerMeal__subheader">Planned:</p>
+            <div class="macroPerMeal__nutrients">
+                <p>[] kcal</p>
                 <p>[]g whey</p>
                 <p>[]g fat</p>
                 <p>[]g carbs</p>
             </div>
-            <p class="macro__kcal">[] meals a day</p> <!-- class name to be changed -->
+            <p class="macroPerMeal__subheader">Actual:</p>
+            <div class="macroPerMeal__nutrients">
+                <p>[] kcal</p>
+                <p>[]g whey</p>
+                <p>[]g fat</p>
+                <p>[]g carbs</p>
+            </div>
         </section>
         <section class="products">
-            <div class="products__product">Product 1</div>
-            <div class="products__product">Product 2</div>
-            <div class="products__product">Product 3</div>
+            <div class="products__product">
+                <button class="product__sign">-</button>
+                <select>
+                    <option value="product1">Product 1</option>
+                    <option value="product2">Product 2</option>
+                    <option value="product3">Product 3</option>
+                    <option value="product4">Product 4</option>
+                    <option value="product5">Product 5</option>
+                </select>
+                <button class="product__sign">+</button>
+            </div>
+            <div class="products__product">
+                <button class="product__sign">-</button>
+                <select>
+                    <option value="product1">Product 1</option>
+                    <option value="product2">Product 2</option>
+                    <option value="product3">Product 3</option>
+                    <option value="product4">Product 4</option>
+                    <option value="product5">Product 5</option>
+                </select>
+                <button class="product__sign">+</button>
+            </div>
+            <div class="products__product">
+                <button class="product__sign">-</button>
+                <select>
+                    <option value="product1">Product 1</option>
+                    <option value="product2">Product 2</option>
+                    <option value="product3">Product 3</option>
+                    <option value="product4">Product 4</option>
+                    <option value="product5">Product 5</option>
+                </select>
+                <button class="product__sign">+</button>
+            </div>
         </section>
+
     </main>
 </body>
 

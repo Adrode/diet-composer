@@ -27,13 +27,28 @@ body {
     font-size: 28px;
 }
 
-.macro__nutrients {
+.macro__nutrients, .macroPerMeal__nutrients {
     display: flex;
     gap: 20px;
     
     font-size: 20px;
+}
 
-    border-bottom: 1px solid black;
+.macroPerMeal__header {
+    border-top: 3px solid black;
+    padding-top: 20px;
+
+    font-size: 32px;
+    font-weight: normal;
+
+    text-align: center;
+}
+
+.macroPerMeal__subheader {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 2px solid black;
 }
 
 .products {
@@ -49,4 +64,24 @@ body {
     border: 1px solid black;
     padding: 20px;
     font-size: 20px;
+}
+
+.product__sign {
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 10%;
+    padding: 10px 20px;
+    margin: 0 10px;
+
+    background-color: rgb(205, 152, 255);
+}
+
+.product__sign:hover {
+    transition: 0.1s linear;
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.product__sign:active {
+    transform: scale(1);
 }
