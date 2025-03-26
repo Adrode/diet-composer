@@ -60,10 +60,18 @@ body {
     gap: 20px;
 }
 
-.products__product {
+.product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     border: 1px solid black;
     padding: 20px;
     font-size: 20px;
+}
+
+.product__options {
+    margin-top: 20px;
 }
 
 .product__sign {
@@ -84,4 +92,13 @@ body {
 
 .product__sign:active {
     transform: scale(1);
+}
+
+.product__macros {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+    margin-top: 20px;
 }
