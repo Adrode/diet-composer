@@ -11,8 +11,10 @@
 
     <link href="style.css" rel="stylesheet" />
 
-    <script defer src="script.js"></script>
-    <script defer src="BMRscript.js"></script>
+    <script defer src="JS/script.js"></script>
+    <script defer src="JS/BMRscript.js"></script>
+    <script defer src="JS/products.js"></script>
+    <script defer src="JS/productsScript.js"></script>
     <title>Diet composer</title>
 </head>
 
@@ -49,9 +51,9 @@
         </section>
         <section class="products">
             <div class="product">
-                <div class="product__weight"><span>[]</span>g</div>
-                <div class="product__options">
-                    <button class="product__sign">-</button>
+                <div class="product__weight"><span class="js-productWeight">100</span>g</div>
+                <form class="product__options js-form">
+                    <button class="product__sign js-minusButton">-</button>
                     <select>
                         <option value="product1">Product 1</option>
                         <option value="product2">Product 2</option>
@@ -59,8 +61,8 @@
                         <option value="product4">Product 4</option>
                         <option value="product5">Product 5</option>
                     </select>
-                    <button class="product__sign">+</button>
-                </div>
+                    <button class="product__sign js-plusButton">+</button>
+                </form>
                 <div class="product__macros">
                     <div><span>[]</span>kcal</div>
                     <div><span>[]</span>kcal</div>
