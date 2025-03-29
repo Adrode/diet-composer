@@ -5,23 +5,22 @@
     const substractWeight = document.querySelector(".js-minusButton");
     const productForm = document.querySelector(".js-form");
 
-    const changeProductWeight = () => {
+    addWeight.addEventListener("click", () => {
+        productWeight += 10;
+        console.log(productWeight);
+        productWeightSelector.innerText = productWeight;
+    });
 
-    };
+    substractWeight.addEventListener("click", () => {
+        if (productWeight <= 0) {
+            return;
+        }
 
-    const onFormSubmit = (event) => {
-        event.preventDefault();
+        productWeight -= 10;
+        console.log(productWeight);
+        productWeightSelector.innerText = productWeight;
+    });
 
-        addWeight.addEventListener("click", () => {
-            productWeight += 10;
-            console.log(productWeight);
-            productWeightSelector.innerText = productWeight;
-        })
 
-        /* substractWeight.addEventListener("click", () => (
-            productWeight.innerValue -= 10
-        )) */
-    };
-
-    productForm.addEventListener("submit", onFormSubmit);
+    productForm.addEventListener("submit", (event) => event.preventDefault());
 }
