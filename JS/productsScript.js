@@ -1,26 +1,34 @@
 {
     const productWeightSelector = document.querySelector(".js-productWeight");
     let productWeight = Number(productWeightSelector.innerText);
-    const addWeight = document.querySelector(".js-plusButton");
-    const substractWeight = document.querySelector(".js-minusButton");
-    const productForm = document.querySelector(".js-form");
+    const addWeight = document.querySelectorAll(".js-plusButton");
+    const substractWeight = document.querySelectorAll(".js-minusButton");
+    const productForm = document.querySelectorAll(".js-form");
 
-    addWeight.addEventListener("click", () => {
-        productWeight += 10;
-        console.log(productWeight);
-        productWeightSelector.innerText = productWeight;
-    });
-
-    substractWeight.addEventListener("click", () => {
-        if (productWeight <= 0) {
-            return;
+    addWeight.forEach((button) =>
+        button.addEventListener("click", () => {
+            productWeight += 10;
+            console.log(productWeight);
+            productWeightSelector.innerText = productWeight;
         }
+        )
+    );
 
-        productWeight -= 10;
-        console.log(productWeight);
-        productWeightSelector.innerText = productWeight;
+    substractWeight.forEach((button) =>
+        button.addEventListener("click", () => {
+            if (productWeight <= 0) {
+                return;
+            }
+
+            productWeight -= 10;
+            console.log(productWeight);
+            productWeightSelector.innerText = productWeight;
+        })
+    );
+
+
+    productForm.forEach((form) => {
+        form.addEventListener("submit", (event) => event.preventDefault());
     });
 
-
-    productForm.addEventListener("submit", (event) => event.preventDefault());
 }
