@@ -8,7 +8,6 @@
     addWeight.forEach((button) =>
         button.addEventListener("click", () => {
             productWeight += 10;
-            console.log(productWeight);
             productWeightSelector.innerText = productWeight;
         }
         )
@@ -21,7 +20,6 @@
             }
 
             productWeight -= 10;
-            console.log(productWeight);
             productWeightSelector.innerText = productWeight;
         })
     );
