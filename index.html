@@ -12,8 +12,9 @@
     <link href="style.css" rel="stylesheet" />
 
     <script defer src="JS/BMR.js"></script>
-    <script defer src="JS/products.js"></script>
+    <script type="module" defer src="JS/products.js"></script>
     <script defer src="JS/productWeightCounter.js"></script>
+    <script type="module" defer src="JS/productsListToOptions.js"></script>
     <title>Diet composer</title>
 </head>
 
@@ -23,24 +24,24 @@
     </header>
     <main class="main">
         <section class="macro">
-            <p class="macro__kcal"><span class="js-kcal">[]</span> kcal</p>
+            <p class="macro__kcal"><span class="js-BMRkcal">[]</span> kcal</p>
             <div class="macro__nutrients">
-                <p><span class="js-whey">[]</span>g whey</p>
-                <p><span class="js-fat">[]</span>g fat</p>
-                <p><span class="js-carbs">[]</span>g carbs</p>
+                <p><span class="js-BMRwhey">[]</span>g whey</p>
+                <p><span class="js-BMRfat">[]</span>g fat</p>
+                <p><span class="js-BMRcarbs">[]</span>g carbs</p>
             </div>
-            <p class="macro__kcal"><span class="js-meals">[]</span> meals a day</p> <!-- class name to be changed -->
+            <p class="macro__kcal"><span class="js-BMRmeals">[]</span> meals a day</p> <!-- class name to be changed -->
         </section>
         <section class="macroPerMeal">
             <h2 class="macroPerMeal__header">Macro per every meal:</h2>
-            <p class="macroPerMeal__subheader">Planned:</p>
+            <h3 class="macroPerMeal__subheader">Planned:</h3>
             <div class="macroPerMeal__nutrients">
                 <p><span class="js-plannedPerMealKcal">[]</span> kcal</p>
                 <p><span class="js-plannedPerMealWhey">[]</span>g whey</p>
                 <p><span class="js-plannedPerMealFat">[]</span>g fat</p>
                 <p><span class="js-plannedPerMealCarbs">[]</span>g carbs</p>
             </div>
-            <p class="macroPerMeal__subheader">Actual:</p>
+            <h3 class="macroPerMeal__subheader">Actual:</h3>
             <div class="macroPerMeal__nutrients">
                 <p>[] kcal</p>
                 <p>[]g whey</p>

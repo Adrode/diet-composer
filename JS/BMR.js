@@ -14,11 +14,11 @@
     const carbs = Math.round((finalCaloricRequirement - (fat * 9) - (whey * 4)) / 4);
     console.log("whey: " + whey + ", fat: " + fat + ", carbs: " + carbs);
 
-    document.querySelector(".js-kcal").innerHTML = finalCaloricRequirement;
-    document.querySelector(".js-whey").innerHTML = whey;
-    document.querySelector(".js-fat").innerHTML = fat;
-    document.querySelector(".js-carbs").innerHTML = carbs;
-    document.querySelector(".js-meals").innerHTML = mealsPerDay;
+    document.querySelector(".js-BMRkcal").innerHTML = finalCaloricRequirement;
+    document.querySelector(".js-BMRwhey").innerHTML = whey;
+    document.querySelector(".js-BMRfat").innerHTML = fat;
+    document.querySelector(".js-BMRcarbs").innerHTML = carbs;
+    document.querySelector(".js-BMRmeals").innerHTML = mealsPerDay;
 
     document.querySelector(".js-plannedPerMealKcal").innerHTML =
         Math.round((finalCaloricRequirement / mealsPerDay) / 10) * 10;
