@@ -1,3 +1,8 @@
 import { products } from "./products.js";
 
-console.log(products);
+const productsToOptions = products.map((product) => `
+    <option>${product.name}</option>
+`);
+
+const productSelect = document.querySelector(".js-productSelect");
+productSelect.innerHTML = productsToOptions;
