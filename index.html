@@ -15,6 +15,7 @@
     <script type="module" defer src="JS/products.js"></script>
     <script defer src="JS/productWeightCounter.js"></script>
     <script type="module" defer src="JS/productsListToOptions.js"></script>
+    <script type="module" defer src="JS/showNumberFormInputRange.js"></script>
     <title>Diet composer</title>
 </head>
 
@@ -54,39 +55,11 @@
                 Type number of products
             </h2>
             <form class="howManyProductsForm">
-                <input type="number" placeholder="Type number of products"
-                    class="howManyProductsForm__number js-productsNumber" />
+                <input type="range" class="howManyProductsForm__number js-productsNumberRange" min="0" max="20" />
             </form>
+            <p class="js-showNumberFromInputRange">[]</p>
         </section>
         <section class="products">
-            <div class="product">
-                <div class="product__weight"><span class="js-productWeight">100</span>g</div>
-                <form class="product__options js-form">
-                    <button class="product__sign js-minusButton">-</button>
-                    <select class="js-productSelect"></select>
-                    <button class="product__sign js-plusButton">+</button>
-                </form>
-                <div class="product__macros">
-                    <div><span class="js-productKcal">[]</span>kcal</div>
-                    <div><span class="js-productWhey">[]</span>whey</div>
-                    <div><span class="js-productFat">[]</span>fat</div>
-                    <div><span class="js-productCarbs">[]</span>carbs</div>
-                </div>
-            </div>
-            <div class="product">
-                <div class="product__weight"><span class="js-productWeight">100</span>g</div>
-                <form class="product__options js-form">
-                    <button class="product__sign js-minusButton">-</button>
-                    <select class="js-productSelect"></select>
-                    <button class="product__sign js-plusButton">+</button>
-                </form>
-                <div class="product__macros">
-                    <div><span class="js-productKcal">[]</span>kcal</div>
-                    <div><span class="js-productWhey">[]</span>whey</div>
-                    <div><span class="js-productFat">[]</span>fat</div>
-                    <div><span class="js-productCarbs">[]</span>carbs</div>
-                </div>
-            </div>
             <div class="product">
                 <div class="product__weight"><span class="js-productWeight">100</span>g</div>
                 <form class="product__options js-form">
