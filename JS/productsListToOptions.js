@@ -4,5 +4,5 @@ const productsToOptions = products.map((product) => `
     <option>${product.name}</option>
 `);
 
-const productSelect = document.querySelector(".js-productSelect");
-productSelect.innerHTML = productsToOptions;
+const productSelect = document.querySelectorAll(".js-productSelect");
+productSelect.forEach(product => product.innerHTML = productsToOptions); 
