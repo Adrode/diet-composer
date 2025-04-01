@@ -13,7 +13,7 @@
 
     <script defer src="JS/BMR.js"></script>
     <script type="module" defer src="JS/products.js"></script>
-    <script defer src="JS/productWeightCounter.js"></script>
+    <script defer src="JS/productsListPicker.js"></script>
     <script type="module" defer src="JS/productsListToOptions.js"></script>
     <script type="module" defer src="JS/showNumberFormInputRange.js"></script>
     <title>Diet composer</title>
@@ -52,7 +52,7 @@
         </section>
         <section class="howManyProducts">
             <h2 class="howManyProducts__header">
-                Type number of products
+                Choose number of products
             </h2>
             <form class="howManyProductsForm">
                 <input type="range" class="howManyProductsForm__number js-productsNumberRange" min="0" max="20"
@@ -60,7 +60,8 @@
                 <span class="js-showNumberFromInputRange">5</span></input>
             </form>
         </section>
-        <section class="products">
+        <section class="products js-products">
+            <!-- ------------------------------------------------------------ -->
             <div class="product">
                 <div class="product__weight"><span class="js-productWeight">100</span>g</div>
                 <form class="product__options js-form">
@@ -75,6 +76,7 @@
                     <div><span class="js-productCarbs">[]</span>carbs</div>
                 </div>
             </div>
+            <!-- ------------------------------------------------------------ -->
         </section>
 
     </main>

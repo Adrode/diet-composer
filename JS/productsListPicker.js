@@ -27,3 +27,6 @@ substractWeight.forEach((button) =>
 productForm.forEach((form) => {
     form.addEventListener("submit", (event) => event.preventDefault());
 });
+
+const products = document.querySelector(".js-products");
+
