@@ -84,12 +84,11 @@ body {
     background-color: transparent;
 }
 
-.products {
+.productPickers {
     margin-top: 60px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
