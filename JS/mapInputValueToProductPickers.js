@@ -1,9 +1,9 @@
-let inputRangeValue = document.querySelector(".js-productsNumberRange");
-const numberFromInputRange = document.querySelector(".js-showNumberFromInputRange");
+const productsForm = document.querySelector(".js-productsNumber");
+let productsInputValue = document.querySelector(".js-productsNumberRange");
 let productPickers = document.querySelector(".js-productPickers");
 
 const generateProductPickers = () => {
-    return Array.from({ length: Number(inputRangeValue.value) }).map((_, index) => `
+    return Array.from({ length: Number(productsInputValue.value) }).map((_, index) => `
         <div class="product">
             <div class="product__weight"><span class="js-productWeight${index + 1}">100</span>g</div>
             <form class="product__options js-form${index + 1}">
@@ -21,8 +21,7 @@ const generateProductPickers = () => {
     ).join("")
 };
 
-inputRangeValue.addEventListener("input", (event) => {
-    numberFromInputRange.innerText = event.target.value;
+productsForm.addEventListener("submit", (event) => {
+    event.preventDefault();
     productPickers.innerHTML = generateProductPickers();
-    console.log(productPickers.innerHTML);
 });

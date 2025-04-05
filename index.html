@@ -54,31 +54,16 @@
             <h2 class="howManyProducts__header">
                 Choose number of products
             </h2>
-            <form class="howManyProductsForm">
-                <input type="range" class="howManyProductsForm__number js-productsNumberRange" min="0" max="20"
-                    value="5">
-                <span class="js-showNumberFromInputRange">5</span>
+            <form class="howManyProductsForm js-productsNumber">
+                <input class="howManyProductsForm__number js-productsNumberRange"
+                    placeholder="Type number of products" />
                 </input>
+                <button type="submit" class="howManyProductsForm__submit js-productsNumberRangeSubmit">
+                    Submit
+                </button>
             </form>
         </section>
-        <section class="productPickers js-productPickers">
-            <!-- ------------------------------------------------------------ -->
-            <div class="product">
-                <div class="product__weight"><span class="js-productWeight">100</span>g</div>
-                <form class="product__options js-form">
-                    <button class="product__sign js-minusButton">-</button>
-                    <select class="js-productSelect"></select>
-                    <button class="product__sign js-plusButton">+</button>
-                </form>
-                <div class="product__macros">
-                    <div><span class="js-productKcal">[]</span>kcal</div>
-                    <div><span class="js-productWhey">[]</span>whey</div>
-                    <div><span class="js-productFat">[]</span>fat</div>
-                    <div><span class="js-productCarbs">[]</span>carbs</div>
-                </div>
-            </div>
-            <!-- ------------------------------------------------------------ -->
-        </section>
+        <section class="productPickers js-productPickers"></section>
 
     </main>
 </body>
