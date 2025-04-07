@@ -63,6 +63,14 @@ form.addEventListener("submit", () => {
         productsWhey.push("js-productWhey" + i);
         productsFat.push("js-productFat" + i);
         productsCarbs.push("js-productCarbs" + i);
+
+        let productsFormRef = document.querySelector("." + productsForm[i - 1]);
+        console.log(productsFormRef);
+        // powyższe działa jak trzeba - łapie przez querySelector
+        // tyle form ile stworzymy na stronie
+
+        // na tej zasadzie mogę stworzyć resztę kodu, który zadziała
+        // jak trzeba pod kątem działania każdego bloku osobno
     }
 })
 

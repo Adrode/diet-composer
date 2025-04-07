@@ -1,32 +1,34 @@
-const productWeightSelector = document.querySelector(".js-productWeight");
-let productWeight = Number(productWeightSelector.innerText);
-const addWeight = document.querySelectorAll(".js-plusButton");
-const substractWeight = document.querySelectorAll(".js-minusButton");
-const productForm = document.querySelectorAll(".js-form");
+const form = document.querySelector(".js-productsNumber");
+let productsInputValue = document.querySelector(".js-productsNumberRange");
 
-addWeight.forEach((button) =>
-    button.addEventListener("click", () => {
-        productWeight += 10;
-        productWeightSelector.innerText = productWeight;
-    }
-    )
-);
+/* let productsWeight = [];
+let productsForm = [];
+let minusButtons = [];
+let plusButtons = [];
+let productsSelect = [];
+let productsKcal = [];
+let productsWhey = [];
+let productsFat = [];
+let productsCarbs = [];
 
-substractWeight.forEach((button) =>
-    button.addEventListener("click", () => {
-        if (productWeight <= 0) {
+form.addEventListener("submit", () => {
+    productsWeight = [];
+    productsForm = [];
+    minusButtons = [];
+    plusButtons = [];
+    productsSelect = [];
+    productsKcal = [];
+    productsWhey = [];
+    productsFat = [];
+    productsCarbs = [];
+
+    for (let i = 1; i < productsInputValue.value; i++) {
+        if (!productsInputValue.value) {
             return;
         }
 
-        productWeight -= 10;
-        productWeightSelector.innerText = productWeight;
-    })
-);
+        productsWeight.push()
+    }
+}) */
 
-
-productForm.forEach((form) => {
-    form.addEventListener("submit", (event) => event.preventDefault());
-});
-
-const products = document.querySelector(".js-products");
 
