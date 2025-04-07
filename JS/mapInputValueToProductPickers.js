@@ -1,4 +1,4 @@
-const productsForm = document.querySelector(".js-productsNumber");
+const form = document.querySelector(".js-productsNumber");
 let productsInputValue = document.querySelector(".js-productsNumberRange");
 let productPickers = document.querySelector(".js-productPickers");
 
@@ -6,7 +6,7 @@ const generateProductPickers = () => {
     return Array.from({ length: Number(productsInputValue.value) }).map((_, index) => `
         <div class="product">
             <div class="product__weight"><span class="js-productWeight${index + 1}">100</span>g</div>
-            <form class="product__options js-form${index + 1}">
+            <form class="product__options js-productForm${index + 1}">
                 <button class="product__sign js-minusButton${index + 1}">-</button>
                 <select class="js-productSelect${index + 1}"></select>
                 <button class="product__sign js-plusButton${index + 1}">+</button>
@@ -21,7 +21,49 @@ const generateProductPickers = () => {
     ).join("")
 };
 
-productsForm.addEventListener("submit", (event) => {
+form.addEventListener("submit", (event) => {
     event.preventDefault();
     productPickers.innerHTML = generateProductPickers();
 });
+
+// ------------------------------------------
+
+let productsWeight = [];
+let productsForm = [];
+let minusButtons = [];
+let productsSelect = [];
+let plusButtons = [];
+let productsKcal = [];
+let productsWhey = [];
+let productsFat = [];
+let productsCarbs = [];
+
+form.addEventListener("submit", () => {
+    productsWeight = [];
+    productsForm = [];
+    minusButtons = [];
+    productsSelect = [];
+    plusButtons = [];
+    productsKcal = [];
+    productsWhey = [];
+    productsFat = [];
+    productsCarbs = [];
+
+    for (let i = 1; i <= productsInputValue.value; i++) {
+        if (!productsInputValue.value) {
+            return;
+        }
+
+        productsWeight.push("js-productWeight" + i);
+        productsForm.push("js-productForm" + i);
+        minusButtons.push("js-minusButton" + i);
+        productsSelect.push("js-productSelect" + i);
+        plusButtons.push("js-plusButton" + i);
+        productsKcal.push("js-productKcal" + i);
+        productsWhey.push("js-productWhey" + i);
+        productsFat.push("js-productFat" + i);
+        productsCarbs.push("js-productCarbs" + i);
+    }
+})
+
+// ------------------------------------------
