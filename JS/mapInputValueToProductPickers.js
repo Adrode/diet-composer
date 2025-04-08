@@ -65,12 +65,21 @@ form.addEventListener("submit", () => {
         productsCarbs.push("js-productCarbs" + i);
 
         let productsFormRef = document.querySelector("." + productsForm[i - 1]);
-        console.log(productsFormRef);
-        // powyższe działa jak trzeba - łapie przez querySelector
-        // tyle form ile stworzymy na stronie
+        productsFormRef.addEventListener("submit", (event) => (
+            event.preventDefault()
+        ));
 
-        // na tej zasadzie mogę stworzyć resztę kodu, który zadziała
-        // jak trzeba pod kątem działania każdego bloku osobno
+        let productsWeightRef = document.querySelector("." + productsWeight[i - 1]);
+        let minusButtonsRef = document.querySelector("." + minusButtons[i - 1]);
+
+        console.log(productsFormRef);
+        console.log(productsWeightRef);
+        console.log(minusButtonsRef);
+
+        minusButtonsRef.addEventListener("click", () => {
+            if (productsWeight.innerText <= 0) return;
+            productsWeightRef.innerText -= 10;
+        })
     }
 })
 
