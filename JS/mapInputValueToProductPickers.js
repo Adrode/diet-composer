@@ -1,6 +1,11 @@
+import { products } from "./products.js";
 const form = document.querySelector(".js-productsNumber");
 let productsInputValue = document.querySelector(".js-productsNumberRange");
 let productPickers = document.querySelector(".js-productPickers");
+
+const productsToOptions = products.map((product) => `
+        <option>${product.name}</option>
+    `);
 
 const generateProductPickers = () => {
     return Array.from({ length: Number(productsInputValue.value) }).map((_, index) => `
@@ -21,13 +26,6 @@ const generateProductPickers = () => {
     ).join("")
 };
 
-form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    productPickers.innerHTML = generateProductPickers();
-});
-
-// ------------------------------------------
-
 let productsWeight = [];
 let productsForm = [];
 let minusButtons = [];
@@ -38,7 +36,10 @@ let productsWhey = [];
 let productsFat = [];
 let productsCarbs = [];
 
-form.addEventListener("submit", () => {
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    productPickers.innerHTML = generateProductPickers();
+
     productsWeight = [];
     productsForm = [];
     minusButtons = [];
@@ -64,6 +65,7 @@ form.addEventListener("submit", () => {
         productsFat.push("js-productFat" + i);
         productsCarbs.push("js-productCarbs" + i);
 
+
         let productsFormRef = document.querySelector("." + productsForm[i - 1]);
         productsFormRef.addEventListener("submit", (event) => (
             event.preventDefault()
@@ -72,6 +74,9 @@ form.addEventListener("submit", () => {
         let productsWeightRef = document.querySelector("." + productsWeight[i - 1]);
         let minusButtonsRef = document.querySelector("." + minusButtons[i - 1]);
         let plusButtonsRef = document.querySelector("." + plusButtons[i - 1]);
+        let productsSelectRef = document.querySelector("." + productsSelect[i - 1]);
+
+        productsSelectRef.innerHTML = productsToOptions;
 
         minusButtonsRef.addEventListener("click", () => {
             if (productsWeightRef.innerText <= 0) return;
