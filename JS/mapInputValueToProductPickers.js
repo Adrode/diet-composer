@@ -73,10 +73,6 @@ form.addEventListener("submit", () => {
         let minusButtonsRef = document.querySelector("." + minusButtons[i - 1]);
         let plusButtonsRef = document.querySelector("." + plusButtons[i - 1]);
 
-        let productsWeightValueRef = productsWeightRef.innerText;
-
-        console.log(productsWeightValueRef);
-
         minusButtonsRef.addEventListener("click", () => {
             if (productsWeightRef.innerText <= 0) return;
             productsWeightRef.innerText = Number(productsWeightRef.innerText) - 10;

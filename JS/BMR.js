@@ -7,12 +7,10 @@
 
     const BMRwithActivity = (66 + (13.7 * weight) + (5 * height) - (6.8 * age)) * activity;
     const finalCaloricRequirement = Math.round(BMRwithActivity);
-    console.log(finalCaloricRequirement);
 
     const whey = Math.round(weight * 2);
     const fat = Math.round((finalCaloricRequirement * 0.3) / 9);
     const carbs = Math.round((finalCaloricRequirement - (fat * 9) - (whey * 4)) / 4);
-    console.log("whey: " + whey + ", fat: " + fat + ", carbs: " + carbs);
 
     document.querySelector(".js-BMRkcal").innerHTML = finalCaloricRequirement;
     document.querySelector(".js-BMRwhey").innerHTML = whey;
