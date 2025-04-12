@@ -71,14 +71,19 @@ form.addEventListener("submit", () => {
 
         let productsWeightRef = document.querySelector("." + productsWeight[i - 1]);
         let minusButtonsRef = document.querySelector("." + minusButtons[i - 1]);
+        let plusButtonsRef = document.querySelector("." + plusButtons[i - 1]);
 
-        console.log(productsFormRef);
-        console.log(productsWeightRef);
-        console.log(minusButtonsRef);
+        let productsWeightValueRef = productsWeightRef.innerText;
+
+        console.log(productsWeightValueRef);
 
         minusButtonsRef.addEventListener("click", () => {
-            if (productsWeight.innerText <= 0) return;
-            productsWeightRef.innerText -= 10;
+            if (productsWeightRef.innerText <= 0) return;
+            productsWeightRef.innerText = Number(productsWeightRef.innerText) - 10;
+        })
+
+        plusButtonsRef.addEventListener("click", () => {
+            productsWeightRef.innerText = Number(productsWeightRef.innerText) + 10;
         })
     }
 })
