@@ -65,7 +65,6 @@ form.addEventListener("submit", (event) => {
         productsFat.push("js-productFat" + i);
         productsCarbs.push("js-productCarbs" + i);
 
-
         let productsFormRef = document.querySelector("." + productsForm[i - 1]);
         productsFormRef.addEventListener("submit", (event) => (
             event.preventDefault()
@@ -73,10 +72,20 @@ form.addEventListener("submit", (event) => {
 
         let productsWeightRef = document.querySelector("." + productsWeight[i - 1]);
         let minusButtonsRef = document.querySelector("." + minusButtons[i - 1]);
-        let plusButtonsRef = document.querySelector("." + plusButtons[i - 1]);
         let productsSelectRef = document.querySelector("." + productsSelect[i - 1]);
+        let plusButtonsRef = document.querySelector("." + plusButtons[i - 1]);
 
         productsSelectRef.innerHTML = productsToOptions;
+
+        productsSelectRef.addEventListener("input", (event) => {
+            console.log(event.target.value);
+            /*
+                rozwinąć dalej kod;
+                poprzez target.value znaleźć odpowiadający produktowi index w tablicy i
+                na tej podstawie dalej przeliczyć makro, które kolejno włoży się do 
+                odpowiednich zmiennych
+            */
+        })
 
         minusButtonsRef.addEventListener("click", () => {
             if (productsWeightRef.innerText <= 0) return;
@@ -87,6 +96,4 @@ form.addEventListener("submit", (event) => {
             productsWeightRef.innerText = Number(productsWeightRef.innerText) + 10;
         })
     }
-})
-
-// ------------------------------------------
+});
