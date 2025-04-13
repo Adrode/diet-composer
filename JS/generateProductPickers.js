@@ -66,34 +66,40 @@ form.addEventListener("submit", (event) => {
         productsCarbs.push("js-productCarbs" + i);
 
         let productsFormRef = document.querySelector("." + productsForm[i - 1]);
-        productsFormRef.addEventListener("submit", (event) => (
-            event.preventDefault()
-        ));
-
         let productsWeightRef = document.querySelector("." + productsWeight[i - 1]);
         let minusButtonsRef = document.querySelector("." + minusButtons[i - 1]);
         let productsSelectRef = document.querySelector("." + productsSelect[i - 1]);
         let plusButtonsRef = document.querySelector("." + plusButtons[i - 1]);
+        let productsKcalRef = document.querySelector("." + productsKcal[i - 1]);
+        let productsWheyRef = document.querySelector("." + productsWhey[i - 1]);
+        let productsFatRef = document.querySelector("." + productsFat[i - 1]);
+        let productsCarbsRef = document.querySelector("." + productsCarbs[i - 1]);
+
+        const productsToMacros = (event) => {
+            let productMacros = products.find((productName) => productName.name === event.target.value);
+            productsKcalRef.innerText = Math.ceil(productMacros.kcal * (Number(productsWeightRef.innerText) / 100));
+        }
+        /*
+            nie działa zmiana kcal w momencie zmiany wagi produktów
+            muszę coś z tym pokminić
+        */
+
+        productsFormRef.addEventListener("submit", (event) => {
+            event.preventDefault();
+            productsToMacros(event);
+        });
 
         productsSelectRef.innerHTML = productsToOptions;
 
-        productsSelectRef.addEventListener("input", (event) => {
-            console.log(event.target.value);
-            /*
-                rozwinąć dalej kod;
-                poprzez target.value znaleźć odpowiadający produktowi index w tablicy i
-                na tej podstawie dalej przeliczyć makro, które kolejno włoży się do 
-                odpowiednich zmiennych
-            */
-        })
+        productsSelectRef.addEventListener("input", productsToMacros);
 
         minusButtonsRef.addEventListener("click", () => {
             if (productsWeightRef.innerText <= 0) return;
             productsWeightRef.innerText = Number(productsWeightRef.innerText) - 10;
-        })
+        });
 
         plusButtonsRef.addEventListener("click", () => {
             productsWeightRef.innerText = Number(productsWeightRef.innerText) + 10;
-        })
+        });
     }
 });
