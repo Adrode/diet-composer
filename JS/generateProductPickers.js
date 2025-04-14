@@ -1,10 +1,11 @@
 import { products } from "./products.js";
+
 const form = document.querySelector(".js-productsNumber");
 let productsInputValue = document.querySelector(".js-productsNumberRange");
 let productPickers = document.querySelector(".js-productPickers");
 
 const productsToOptions = products.map((product) => `
-        <option>${product.name}</option>
+        <option value="${product.name}">${product.name}</option>
     `);
 
 const generateProductPickers = () => {
@@ -75,31 +76,37 @@ form.addEventListener("submit", (event) => {
         let productsFatRef = document.querySelector("." + productsFat[i - 1]);
         let productsCarbsRef = document.querySelector("." + productsCarbs[i - 1]);
 
-        const productsToMacros = (event) => {
-            let productMacros = products.find((productName) => productName.name === event.target.value);
-            productsKcalRef.innerText = Math.ceil(productMacros.kcal * (Number(productsWeightRef.innerText) / 100));
+        const productsToMacros = (productsWeightRef, productsSelectRef, productsKcalRef, productsWheyRef, productsFatRef, productsCarbsRef) => {
+            let productMacros = products.find((product) => product.name === productsSelectRef.value);
+            if (productMacros) {
+                let weight = Number(productsWeightRef.innerText);
+                productsKcalRef.innerText = Math.ceil(productMacros.kcal * (weight / 100));
+                productsWheyRef.innerText = Math.ceil(productMacros.whey * (weight / 100));
+                productsFatRef.innerText = Math.ceil(productMacros.fat * (weight / 100));
+                productsCarbsRef.innerText = Math.ceil(productMacros.carbs * (weight / 100));
+            }
+
         }
-        /*
-            nie działa zmiana kcal w momencie zmiany wagi produktów
-            muszę coś z tym pokminić
-        */
 
         productsFormRef.addEventListener("submit", (event) => {
             event.preventDefault();
-            productsToMacros(event);
         });
 
         productsSelectRef.innerHTML = productsToOptions;
 
-        productsSelectRef.addEventListener("input", productsToMacros);
+        productsSelectRef.addEventListener("input", () => {
+            productsToMacros(productsWeightRef, productsSelectRef, productsKcalRef, productsWheyRef, productsFatRef, productsCarbsRef);
+        });
 
         minusButtonsRef.addEventListener("click", () => {
             if (productsWeightRef.innerText <= 0) return;
             productsWeightRef.innerText = Number(productsWeightRef.innerText) - 10;
+            productsToMacros(productsWeightRef, productsSelectRef, productsKcalRef, productsWheyRef, productsFatRef, productsCarbsRef);
         });
 
         plusButtonsRef.addEventListener("click", () => {
             productsWeightRef.innerText = Number(productsWeightRef.innerText) + 10;
+            productsToMacros(productsWeightRef, productsSelectRef, productsKcalRef, productsWheyRef, productsFatRef, productsCarbsRef);
         });
     }
 });
