@@ -4,6 +4,11 @@ const form = document.querySelector(".js-productsNumber");
 let productsInputValue = document.querySelector(".js-productsNumberRange");
 let productPickers = document.querySelector(".js-productPickers");
 
+const actualKcal = document.querySelector(".js-actualPerMealKcal");
+const actualWhey = document.querySelector(".js-actualPerMealWhey");
+const actualFat = document.querySelector(".js-actualPerMealFat");
+const actualCarbs = document.querySelector(".js-actualPerMealCarbs");
+
 const productsToOptions = products.map((product) => `
         <option value="${product.name}">${product.name}</option>
     `);
@@ -36,6 +41,10 @@ let productsKcal = [];
 let productsWhey = [];
 let productsFat = [];
 let productsCarbs = [];
+let sumOfKcal = [];
+let sumOfWhey;
+let sumOfFat;
+let sumOfCarbs;
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -78,6 +87,9 @@ form.addEventListener("submit", (event) => {
 
         const productsToMacros = (productsWeightRef, productsSelectRef, productsKcalRef, productsWheyRef, productsFatRef, productsCarbsRef) => {
             let productMacros = products.find((product) => product.name === productsSelectRef.value);
+
+            sumOfKcal = [];
+
             if (productMacros) {
                 let weight = Number(productsWeightRef.innerText);
                 productsKcalRef.innerText = Math.ceil(productMacros.kcal * (weight / 100));
@@ -86,6 +98,10 @@ form.addEventListener("submit", (event) => {
                 productsCarbsRef.innerText = Math.ceil(productMacros.carbs * (weight / 100));
             }
 
+            productsKcal.map((product) => {
+                sumOfKcal.push(Number(document.querySelector("." + product).innerText));
+                console.log(sumOfKcal);
+            })
         }
 
         productsFormRef.addEventListener("submit", (event) => {
@@ -109,4 +125,10 @@ form.addEventListener("submit", (event) => {
             productsToMacros(productsWeightRef, productsSelectRef, productsKcalRef, productsWheyRef, productsFatRef, productsCarbsRef);
         });
     }
+
+    sumOfKcal.map((product) => (
+        Number(product)
+    ))
+    console.log(sumOfKcal);
+    // powyższe nie działa; trzeba ogarnąć jakoś dodawanie elementów tablicy
 });
